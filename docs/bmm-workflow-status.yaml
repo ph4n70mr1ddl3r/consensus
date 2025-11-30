@@ -1,0 +1,46 @@
+generated: "2025-11-30T10:50:00Z"
+project: "consensus"
+project_type: "software"
+selected_track: "bmad-method"
+field_type: "greenfield"
+project_goal: "Create a leaderless, asynchronous, BFT consensus mechanism."
+user_name: "BMad"
+communication_language: "English"
+document_output_language: "English"
+discovery:
+  brainstorm: true
+  research: true
+  product_brief: false
+workflow_path: ".bmad/bmm/workflows/2-plan-workflows/prd/workflow.yaml"
+workflow_status:
+  - id: prd
+    name: "Product Requirements Document"
+    status: "completed"
+    required: true
+    path: "docs/prd.md"
+  - id: research
+    name: "Research"
+    status: "completed"
+    required: false
+    path: "docs/bmm-research-scope-2025-11-30T10-55-00Z.md"
+  - id: brainstorm
+    name: "Brainstorm"
+    status: "completed"
+    required: false
+    path: "docs/bmm-brainstorming-session-2025-11-30T10-55-00Z.md"
+  - id: architecture
+    name: "Architecture"
+    status: "pending"
+    required: conditional
+  - id: epics
+    name: "Epics & Stories"
+    status: "pending"
+    required: conditional
+  - id: implementation-readiness
+    name: "Implementation Readiness"
+    status: "pending"
+    required: conditional
+next_workflow_name: "prd"
+next_agent: "pm"
+next_workflow_id: "2-plan-workflows/prd"
+
