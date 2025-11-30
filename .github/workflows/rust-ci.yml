@@ -21,4 +21,14 @@ jobs:
 
       - name: Run cargo test
         run: |
+          # Run tests (fail on any test failure)
           cargo test --all --verbose
+
+      - name: Upload Rust test logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rust-test-artifacts
+          path: |
+            target/debug/deps/**/*.d
+            target/debug/**/*.log
+          if-no-files-found: ignore

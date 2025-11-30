@@ -36,15 +36,21 @@ jobs:
             python -m pip install -r requirements.txt
           elif [ -f pyproject.toml ]; then
             python -m pip install build
-            python -m pip install . || true
+            python -m pip install .
           else
-            echo "No Python manifest found; skipping install"
+            echo "No Python manifest found; failing to surface missing requirements" && exit 1
           fi
 
-      - name: Run tests
+      - name: Run tests (pytest + junit + coverage)
         run: |
-          if command -v pytest >/dev/null 2>&1 || [ -d tests ]; then
-            python -m pytest -q
-          else
-            echo "No pytest found and no tests directory; skipping"
-          fi
+          # Run pytest and produce JUnit XML and coverage XML if pytest and pytest-cov are available
+          python -m pytest -q --junitxml=pytest-junit.xml --cov=./ --cov-report=xml
+
+      - name: Upload pytest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-test-artifacts
+          path: |
+            pytest-junit.xml
+            coverage.xml
+          if-no-files-found: ignore
