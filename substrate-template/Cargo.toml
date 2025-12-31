@@ -1,0 +1,101 @@
+[workspace]
+resolver = "2"
+members = [
+    "node",
+    "runtime",
+    "pallets/custom/bls",
+    "pallets/custom/dkg",
+    "pallets/custom/poker",
+    "pallets/custom/timestamp",
+]
+
+[workspace.package]
+version = "0.0.0"
+license = "Unlicense"
+edition = "2021"
+authors = ["Poker Consensus Engine Team"]
+homepage = "https://github.com/paritytech/polkadot-sdk"
+repository = "https://github.com/paritytech/polkadot-sdk"
+publish = false
+
+[workspace.dependencies]
+# Substrate
+sp-api = { version = "14.0.0", default-features = false }
+sp-block-builder = { version = "14.0.0", default-features = false }
+sp-consensus = { version = "0.14.0-dev", default-features = false }
+sp-consensus-aura = { version = "14.0.0-dev", default-features = false }
+sp-consensus-grandpa = { version = "14.0.0-dev", default-features = false }
+sp-core = { version = "14.0.0", default-features = false }
+sp-genesis-builder = { version = "14.0.0", default-features = false }
+sp-inherents = { version = "14.0.0", default-features = false }
+sp-io = { version = "14.0.0", default-features = false }
+sp-keyring = { version = "14.0.0", default-features = false }
+sp-offchain = { version = "14.0.0", default-features = false }
+sp-runtime = { version = "14.0.0", default-features = false }
+sp-session = { version = "14.0.0", default-features = false }
+sp-std = { version = "14.0.0", default-features = false }
+sp-storage = { version = "14.0.0", default-features = false }
+sp-timestamp = { version = "14.0.0", default-features = false }
+sp-transaction-pool = { version = "14.0.0", default-features = false }
+sp-version = { version = "14.0.0", default-features = false }
+
+# Frame
+frame-benchmarking = { version = "14.0.0", default-features = false }
+frame-executive = { version = "14.0.0", default-features = false }
+frame-metadata-hash-extension = { version = "14.0.0", default-features = false }
+frame-support = { version = "14.0.0", default-features = false, features = ["experimental"] }
+frame-system = { version = "14.0.0", default-features = false }
+frame-system-benchmarking = { version = "14.0.0", default-features = false }
+frame-try-runtime = { version = "14.0.0", default-features = false }
+
+# FRAME Pallets
+pallet-aura = { version = "14.0.0", default-features = false }
+pallet-balances = { version = "14.0.0", default-features = false }
+pallet-grandpa = { version = "14.0.0", default-features = false }
+pallet-sudo = { version = "14.0.0", default-features = false }
+pallet-template = { version = "14.0.0", default-features = false }
+pallet-timestamp = { version = "14.0.0", default-features = false }
+pallet-transaction-payment = { version = "14.0.0", default-features = false }
+pallet-transaction-payment-rpc = { version = "14.0.0", default-features = false }
+
+# Polkadot
+polkadot-sdk = { version = "0.0.0", path = "." }
+polkadot-service = { version = "0.0.0", path = "./polkadot/service" }
+
+# Runtimes
+poker-consensus-runtime = { version = "0.0.0", path = "./runtime" }
+
+# Local Poker Consensus Engine pallets
+pallet-poker = { version = "0.0.0", path = "./pallets/custom/poker", default-features = false }
+pallet-timestamp-consensus = { version = "0.0.0", path = "./pallets/custom/timestamp", default-features = false }
+pallet-dkg = { version = "0.0.0", path = "./pallets/custom/dkg", default-features = false }
+pallet-bls = { version = "0.0.0", path = "./pallets/custom/bls", default-features = false }
+
+# Rpc
+substrate-frame-rpc-system = { version = "14.0.0", default-features = false }
+
+# Serialization
+codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = ["derive", "max-encoded-len"] }
+scale-info = { version = "2.10.0", default-features = false, features = ["derive"] }
+serde = { version = "1.0.210", default-features = false }
+serde_json = { version = "1.0.132", default-features = false, features = ["alloc"] }
+
+# Utils
+futures = { version = "0.3.30", default-features = false }
+hex-literal = { version = "0.4.3", default-features = false }
+jsonrpsee = { version = "0.22", default-features = false }
+log = { version = "0.4.22", default-features = false }
+clap = { version = "4.5", default-features = false, features = ["derive"] }
+
+# Benchmarking
+frame-benchmarking-cli = { version = "14.0.0", default-features = false }
+substrate-wasm-builder = { version = "14.0.0", default-features = true }
+substrate-build-script-utils = { version = "14.0.0", default-features = true }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 0

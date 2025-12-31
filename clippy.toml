@@ -1,0 +1,88 @@
+# Poker Consensus Engine - Clippy configuration
+
+# Allow these lints in tests
+allow-tests = true
+
+# Warn about these lints
+warn = [
+    "clippy::all",
+    "clippy::correctness",
+    "clippy::suspicious",
+    "clippy::style",
+    "clippy::complexity",
+    "clippy::perf",
+]
+
+# Deny these lints
+deny = [
+    "dead_code",
+    "unused_variables",
+    "unused_imports",
+]
+
+# Allow these lints
+allow = [
+    # Allow long literal without separators
+    "unreadable_literal",
+    # Allow type complexity
+    "type_complexity",
+    # Allow too many arguments
+    "too_many_arguments",
+    # Allow result types with default error
+    "result_large_err",
+    # Allow missing const for trivial functions
+    "missing_const_for_fn",
+    # Allow trivial casts
+    "clippy::unwrap_used",
+    "clippy::expect_used",
+    "clippy::panic",
+]
+
+# Super permissive for now during initial development
+warn = [
+    "clippy::default_numeric_fallback",
+    "clippy::implicit_saturating_add",
+    "redundant_closure_call",
+    "redundant_pub_crate",
+    "unnecessary_box_returns",
+    "unnecessary_box_returns",
+]
+
+# Allow these in tests
+allow = [
+    "clippy::assertions_on_result_states",
+    "clippy::branches_sharing_code",
+    "clippy::derived_ord_xor_partial_ord",
+    "clippy::empty_enum_variants_with_braces",
+    "clippy::enum_glob_use",
+    "clippy::exit",
+    "clippy::exploding_slice_patterns",
+    "clippy::for_kv_map",
+    "clippy::if_then_some_else_none",
+    "clippy::items_after_statements",
+    "clippy::large_types_passed_by_value",
+    "clippy::manual_async_fn",
+    "clippy::map_err_ignore",
+    "clippy::match_wildcard_for_single_variants",
+    "clippy::missing_panics_doc",
+    "clippy::multiple_crate_versions",
+    "clippy::needless_borrow",
+    "clippy::needless_continue",
+    "clippy::nonstandard_macro_braces",
+    "clippy::option_option",
+    "clippy::ref_option_ref",
+    "clippy::rest_pat_in_fully_bound_structs",
+    "clippy::same_name_method",
+    "clippy::self_named_module_files",
+    "clippy::semicolon_if_nothing_returned",
+    "clippy::separated_literal_suffix",
+    "clippy::shadow_unrelated",
+    "clippy::single_char_pattern",
+    "clippy::toplevel_ref_arg",
+    "clippy::try_err",
+    "clippy::unnecessary_safety_comment",
+    "clippy::unnecessary_safety_instruction",
+    "clippy::unused_self",
+    "clippy::useless_let_if_seq",
+    "clippy::verbose_file_reads",
+]

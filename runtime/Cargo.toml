@@ -1,0 +1,89 @@
+[package]
+name = "poker-consensus-runtime"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+description = "Poker Consensus Engine - Runtime module"
+
+[dependencies]
+# Substrate
+frame-support = { workspace = true, features = ["derive"] }
+frame-system = { workspace = true }
+frame-system-rpc-runtime-api = { workspace = true }
+frame-executive = { workspace = true }
+frame-benchmarking = { workspace = true, optional = true }
+pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false }
+pallet-timestamp = { version = "4.0.0-dev", default-features = false }
+pallet-authorship = { version = "4.0.0-dev", default-features = false }
+pallet-transaction-payment = { version = "4.0.0-dev", default-features = false }
+
+# Consensus (BABE/GRANDPA)
+pallet-babe = { version = "4.0.0-dev", default-features = false }
+pallet-grandpa = { version = "4.0.0-dev", default-features = false }
+pallet-session = { version = "4.0.0-dev", default-features = false }
+pallet-im-online = { version = "4.0.0-dev", default-features = false }
+pallet-offences = { version = "4.0.0-dev", default-features = false }
+
+# Local pallets
+pallet-poker = { path = "../pallets/poker", default-features = false }
+pallet-timestamp-consensus = { path = "../pallets/timestamp", default-features = false }
+pallet-dkg = { path = "../pallets/dkg", default-features = false }
+pallet-bls = { path = "../pallets/bls", default-features = false }
+
+# SCALE codec
+codec = { workspace = true }
+scale-info = { workspace = true, features = ["derive"] }
+
+# System
+sp-api = { workspace = true }
+sp-block-builder = { workspace = true }
+sp-core = { workspace = true }
+sp-inherents = { workspace = true }
+sp-offchain = { workspace = true }
+sp-runtime = { workspace = true }
+sp-session = { workspace = true }
+sp-std = { workspace = true }
+sp-transaction-pool = { workspace = true }
+
+# Utilities
+sp-version = { version = "5.0.0", default-features = false }
+sp-mmr-primitives = { version = "4.0.0-dev", default-features = false }
+
+[build-dependencies]
+substrate-build-script-utils = { version = "3.0.0", features = ["gettext"] }
+
+[features]
+default = ["std"]
+std = [
+    "frame-support/std",
+    "frame-system/std",
+    "frame-executive/std",
+    "frame-benchmarking/std",
+    "pallet-babe/std",
+    "pallet-grandpa/std",
+    "pallet-session/std",
+    "pallet-im-online/std",
+    "pallet-offences/std",
+    "pallet-timestamp/std",
+    "pallet-poker/std",
+    "pallet-timestamp-consensus/std",
+    "pallet-dkg/std",
+    "pallet-bls/std",
+    "sp-api/std",
+    "sp-block-builder/std",
+    "sp-core/std",
+    "sp-inherents/std",
+    "sp-offchain/std",
+    "sp-runtime/std",
+    "sp-session/std",
+    "sp-std/std",
+    "sp-transaction-pool/std",
+    "codec/std",
+    "scale-info/std",
+]
+runtime-benchmarks = [
+    "frame-benchmarking/runtime-benchmarks",
+    "pallet-poker/runtime-benchmarks",
+    "pallet-dkg/runtime-benchmarks",
+    "pallet-bls/runtime-benchmarks",
+]

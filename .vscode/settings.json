@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsOnly",
+  "editor.rust-client.channel": "stable",
+  "editor.rust-analyzer.checkOnSave.command": "clippy",
+  "editor.rust-analyzer.procMacro.enable": true,
+  "editor.rust-analyzer.cargo.cargoFeatures.features": ["runtime-benchmarks"],
+  "editor.rust-analyzer.cargo.targets": ["poker-node", "runtime"],
+  "editor.rust-analyzer.server.extraEnv": {
+    "RUSTFLAGS": "-C target-cpu=native"
+  },
+  "files.associations": {
+    "*.toml": "toml"
+  },
+  "search.exclude": {
+    "**/target": true,
+    "**/Cargo.lock": true
+  },
+  "rust-analyzer.diagnostics.previewRustcOutput": true,
+  "rust-analyzer.imports.granularity.enforce": "module",
+  "rust-analyzer.imports.groupBy": "parent",
+  "rust-analyzer.completion.additional.memberCompletionSnippets": {
+    "postfix": true
+  }
+}
